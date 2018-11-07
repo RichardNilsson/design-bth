@@ -1,3 +1,8 @@
 #### Kursrepo
 
-Skriv något kort om kursen och länka till [kursens hemsida på dbwebb.se](XXX) och till [kursrepot på GitHub](XXX).
+Just nu läser jag kursen 
+[Design](https://dbwebb.se/kurser/design-v2) på Blekinge Tekniska Högskola och 
+min kurs-repository hittar du på 
+[GitHub](https://github.com/RichardNilsson/design-bth).
+
+

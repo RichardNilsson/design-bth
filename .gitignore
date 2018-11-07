@@ -84,6 +84,7 @@ fabric.properties
 # End of https://www.gitignore.io/api/phpstorm
 
 /.idea
+/htdocs/.idea
 
 # Start of initial gitignore
 /.bin

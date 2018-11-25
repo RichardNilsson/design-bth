@@ -4661,19 +4661,19 @@ div.block.site-footer p a {
   max-width: 100%;
 }
 .region-header-col-1 {
-  width: 20%;
+  width: 15%;
   float: left;
 }
 .region-header-col-2 {
-  width: 20%;
+  width: 15%;
   float: left;
 }
 .region-header-col-3 {
-  width: 20%;
+  width: 15%;
   float: left;
 }
 .region-header-col-2 {
-  width: 60%;
+  width: 70%;
 }
 .inner-wrap-header {
   background-color: #9f9;
@@ -4796,6 +4796,11 @@ a {
 }
 div.toc > h4:nth-child(1) {
   text-align: center;
+}
+pre.hljs {
+  background-color: black;
+  color: white;
+  font-size: 0.7em;
 }
 /**
  * Layout for responsive style through media queries.

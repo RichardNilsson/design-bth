@@ -6,10 +6,10 @@
 /**
  * Variables
  */
-@widthMain: 70%;
-@numberOfFooterColumns: 3;
-@fullWidth: 100%;
-@widthWithTwoSidebars: 60%;
+@width-main: 70%;
+@number-of-footer-columns: 3;
+@full-width: 100%;
+@width-with-two-sidebars: 60%;
 /**
  * General layout
  */
@@ -26,7 +26,7 @@
     Main and sidebars layout
 */
 .region-main {
-    width: @widthMain;
+    width: @width-main;
     margin-left: 10%;
     //overflow: auto;
     &.has-sidebar {
@@ -34,23 +34,23 @@
     }
 
     &.has-sidebar-left.has-sidebar-right {
-        width: @widthWithTwoSidebars;
+        width: @width-with-two-sidebars;
     }
 }
 
 .region-sidebar-right,
 .region-sidebar-left {
-    width: @fullWidth - @widthMain;
+    width: @full-width - @width-main;
 
     &.has-sidebar-left,
     &.has-sidebar-right {
-        width: (@fullWidth - @widthWithTwoSidebars) / 2;
+        width: (@full-width - @width-with-two-sidebars) / 2;
     }
 }
 
 
 .footer-column {
-    width: (@fullWidth / @numberOfFooterColumns);
+    width: (@full-width / @number-of-footer-columns);
 }
 
 .footer-column,

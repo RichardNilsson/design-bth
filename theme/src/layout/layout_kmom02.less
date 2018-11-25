@@ -1,0 +1,122 @@
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+@import "../mixin/fontawesome-after";
+@import "../mixin/fontawesome-before";
+/**
+ * Variables
+ */
+@width-center-header-column: 60%;
+@full-width: 100%;
+@navbar-icons: '\f015', '\f19d', '\f276', '\f124', '\f0ad', '\f011'; // List of icons for the navbar
+
+/**
+ * Footer layout
+ */
+.outer-wrap-footer,
+.inner-wrap-footer {
+    color: #fff;
+    background-color: #333;
+}
+
+div.block.site-footer p a {
+    color: inherit;
+}
+
+/**
+ * Header layout
+ */
+.inner-wrap-header {
+    max-width: @full-width;
+}
+
+.generate-region-header-columns(@n, @i: 1) when (@i =< @n) {
+    .region-header-col-@{i} {
+        width: (@full-width - @width-center-header-column) / 2;
+        float: left;
+    }
+    .generate-region-header-columns(@n, (@i + 1));
+}
+
+.generate-region-header-columns(3);
+
+.region-header-col-2 {
+    width: @width-center-header-column;
+}
+
+.inner-wrap-header {
+    background-color: #9f9;
+}
+
+.region-header-col-2 {
+    text-align: center;
+}
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+    .my-navbar > li:nth-child(@{i}) > a::before {
+        content: extract(@navbar-icons, @i);
+        .fontawesome-before();
+    }
+    .generate-columns(@n, (@i + 1));
+}
+
+.generate-columns(6);
+
+/*
+Navigation where present
+*/
+.next a::after {
+    content: '\f0da';
+    .fontawesome-after();
+}
+
+.previous a::before {
+    content: '\f0d9';
+    .fontawesome-before();
+}
+
+.next,
+.previous {
+    width: @full-width / 2;
+}
+
+.previous {
+    float: left;
+}
+.next {
+    float: right;
+    text-align: right;
+}
+
+/*
+Sidebars and navigation
+*/
+.breadcrumb-list ul,
+.toc {
+    list-style-type: none;
+    & li {
+        margin-left: -20px;
+    }
+}
+
+.breadcrumb-list ul li::after {
+    content: '\f101';
+    .fontawesome-after();
+    margin-right: 25px;
+}
+
+.breadcrumb-list ul {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+div.toc > h4:nth-child(1) {
+    text-align: center;
+}
+

@@ -1,0 +1,62 @@
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+
+/**
+ * Variables
+ */
+@widthMain: 70%;
+@numberOfFooterColumns: 3;
+@fullWidth: 100%;
+@widthWithTwoSidebars: 60%;
+/**
+ * General layout
+ */
+.inner-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+.site-logo {
+    display: none;
+}
+/*
+    Main and sidebars layout
+*/
+.region-main {
+    width: @widthMain;
+    margin-left: 10%;
+    //overflow: auto;
+    &.has-sidebar {
+        margin-left: 0;
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        width: @widthWithTwoSidebars;
+    }
+}
+
+.region-sidebar-right,
+.region-sidebar-left {
+    width: @fullWidth - @widthMain;
+
+    &.has-sidebar-left,
+    &.has-sidebar-right {
+        width: (@fullWidth - @widthWithTwoSidebars) / 2;
+    }
+}
+
+
+.footer-column {
+    width: (@fullWidth / @numberOfFooterColumns);
+}
+
+.footer-column,
+.region-main,
+.region-sidebar-right,
+.region-sidebar-left,
+.has-sidebar-left {
+    float: left;
+}

@@ -55,6 +55,15 @@ Variables
 @bgColorBody: #ddd;
 
 .outer-wrap-header,
-.inner-wrap {
+.inner-wrap,
+.figure {
   #design-mixin.clearfix();
+}
+
+.figure.right {
+  float: right;
+  text-align: center;
+  & figcaption p {
+    margin: 0;
+  }
 }

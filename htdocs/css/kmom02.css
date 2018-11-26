@@ -4885,8 +4885,16 @@ pre.hljs {
 Variables
 */
 .outer-wrap-header::after,
-.inner-wrap::after {
+.inner-wrap::after,
+.figure::after {
   content: "";
   display: block;
   clear: both;
+}
+.figure.right {
+  float: right;
+  text-align: center;
+}
+.figure.right figcaption p {
+  margin: 0;
 }

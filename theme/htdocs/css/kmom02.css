@@ -4675,7 +4675,8 @@ div.block.site-footer p a {
 .region-header-col-2 {
   width: 70%;
 }
-.inner-wrap-header {
+.inner-wrap-header,
+.my-navbar > li:nth-child(2) > ul:nth-child(3) {
   background-color: #2B6EA1;
 }
 .region-header-col-2 {

@@ -4810,6 +4810,19 @@ pre.hljs {
   text-decoration: underline;
   color: black;
 }
+figure.figure:nth-child(1) {
+  max-width: 20%;
+  float: left;
+  margin: 5px 10px 0 5px;
+}
+p.right {
+  max-width: 60%;
+  float: left;
+}
+.author-byline {
+  border: 1px solid #000;
+  max-width: 85%;
+}
 /**
  * Layout for responsive style through media queries.
  */
@@ -4891,7 +4904,8 @@ Variables
 */
 .outer-wrap-header::after,
 .inner-wrap::after,
-.figure::after {
+.figure::after,
+.author-byline::after {
   content: "";
   display: block;
   clear: both;

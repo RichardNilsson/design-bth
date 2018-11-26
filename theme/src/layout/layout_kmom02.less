@@ -10,7 +10,7 @@
 @width-center-header-column: 60%;
 @full-width: 100%;
 @navbar-icons: '\f015', '\f19d', '\f276', '\f124', '\f0ad', '\f011'; // List of icons for the navbar
-
+@byline-text-width: 60%;
 /**
  * Footer layout
  */
@@ -134,4 +134,20 @@ pre.hljs {
 .selected a {
     text-decoration: underline;
     color: black;
+}
+
+figure.figure:nth-child(1) {
+    max-width: (@full-width - @byline-text-width) / 2;
+    float: left;
+    margin: 5px 10px 0 5px;
+}
+
+p.right {
+    max-width: @byline-text-width;
+    float: left;
+}
+
+.author-byline {
+    border: 1px solid #000;
+    max-width: 85%;
 }

@@ -4802,6 +4802,9 @@ pre.hljs {
   color: white;
   font-size: 0.7em;
 }
+.site-footer {
+  text-align: center;
+}
 /**
  * Layout for responsive style through media queries.
  */

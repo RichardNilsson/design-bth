@@ -1,0 +1,327 @@
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+
+.row {
+    #desinax-vgrid.row();
+
+    //background-color: #0f0;
+    //margin-bottom: 12px;
+}
+
+/**
+ * Imports
+ */
+@import "../mixin/fontawesome-after";
+@import "../mixin/fontawesome-before";
+/**
+ * End of Imports
+ */
+
+/**
+ * Variables
+ */
+@width-main: 70%;
+@number-of-footer-columns: 3;
+@full-width: 100%;
+@width-with-two-sidebars: 60%;
+@width-center-header-column: 60%;
+@full-width: 100%;
+@navbar-icons: '\f015', '\f19d', '\f276', '\f124', '\f0ad', '\f011'; // List of icons for the navbar
+@byline-text-width: 60%;
+/**
+ * End of Variables
+ */
+
+/**
+ * General layout
+ */
+.inner-wrap {
+    //max-width: 960px;
+    //margin: 0 auto;
+    background-color: #ccc;
+}
+
+.site-logo {
+    display: none;
+}
+
+.inner-wrap {
+    #desinax-vgrid.grid(1100px);
+}
+
+// From Grid Wrapper https://github.com/desinax/vertical-grid#grid-wrapper
+.inner-wrap-header {
+    #desinax-vgrid.grid(100%);
+}
+
+.inner-wrap-header,
+.inner-wrap-footer {
+    #desinax-vgrid.grid(100%);
+}
+// <--- Grid Wrapper
+
+// From Show the grid https://github.com/desinax/vertical-grid#show-the-grid
+.vgrid .inner-wrap {
+    @gridImage: "../img/grid_24x30x10-nomargin.png";
+    //@gridImage: "../img/grid_12x60x20-nomargin.png";
+    #desinax-vgrid.showGrid(@gridImage, 1100px);
+
+    &.inner-wrap-header,
+    &.inner-wrap-footer {
+        #desinax-vgrid.showGrid(@gridImage);
+    }
+}
+// <--- Show the grid
+/**
+ * End of General layout
+ */
+
+/**
+ * End of Main and sidebars layout
+*/
+.region-main {
+    #desinax-vgrid.column(@columns * 3 / 4);
+    #desinax-vgrid.push(2);
+
+    &.has-sidebar {
+        #desinax-vgrid.push(0);
+    }
+
+    &.has-sidebar-right {
+        #desinax-vgrid.column(@columns * 3 / 4 - 1);
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        #desinax-vgrid.column(@columns - 10);
+        //width: @width-with-two-sidebars;
+    }
+}
+
+.region-sidebar-right,
+.region-sidebar-left {
+    #desinax-vgrid.column(@columns * 1 / 4);
+    //#desinax-vgrid.column(6);
+    //width: @full-width - @width-main;
+
+    //&.has-sidebar-left,
+    //&.has-sidebar-right {
+    //width: (@full-width - @width-with-two-sidebars) / 2;
+}
+//}
+
+.region-sidebar-right {
+    #desinax-vgrid.push(1);
+}
+
+.region-sidebar-left.has-sidebar-right,
+.region-sidebar-right.has-sidebar-left {
+    #desinax-vgrid.column(@columns * 1 / 4 - 1);
+}
+
+//figure.figure:nth-child(1) {
+//    //max-width: (@full-width - @byline-text-width) / 2;
+//    //float: left;
+//    //margin: 5px 10px 0 5px;
+//}
+
+//p.right {
+//    //max-width: @byline-text-width;
+//    //float: left;
+//}
+
+.author-byline {
+    border: 1px solid #000;
+    //max-width: 85%;
+}
+a {
+    text-decoration: none;
+}
+pre.hljs {
+    background-color: black;
+    color: white;
+    font-size: 0.7em;
+}
+
+.selected a {
+    text-decoration: underline;
+    color: black;
+}
+/**
+ * Responsive 1, 2, 3
+ */
+@media screen and (max-width: 1000px) {
+    .region-main {
+        #desinax-vgrid.column(@columns);
+
+        &.has-sidebar-right.has-sidebar-left {
+            #desinax-vgrid.column(@columns);
+        }
+    }
+
+    .region-sidebar-left {
+        #desinax-vgrid.column(@columns);
+    }
+
+    .region-sidebar-right.has-sidebar-left,
+    .region-sidebar-left.has-sidebar-right {
+        #desinax-vgrid.column(@columns);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .region-main.has-sidebar-right {
+        #desinax-vgrid.column(@columns);
+    }
+
+    .region-sidebar-right {
+        #desinax-vgrid.column(@columns);
+        #desinax-vgrid.push(0);
+    }
+}
+
+/**
+ * End of Main and sidebars layout
+*/
+
+/**
+ * Footer layout
+ */
+.footer-column {
+    //width: (@full-width / @number-of-footer-columns);
+    #desinax-vgrid.column(@columns / 3);
+}
+
+.footer-column,
+.region-main,
+.region-sidebar-right,
+.region-sidebar-left,
+.has-sidebar-left {
+    //float: left;
+}
+
+.outer-wrap-footer,
+.inner-wrap-footer {
+    color: #fff;
+    background-color: #333;
+}
+
+div.block.site-footer p a {
+    color: inherit;
+}
+
+.site-footer,
+.region-breadcrumb,
+.region-flash {
+    #desinax-vgrid.column(@columns);
+    //text-align: center;
+}
+/**
+ * End of Footer layout
+ */
+
+/**
+ * Header layout
+ */
+.inner-wrap-header {
+    //max-width: @full-width;
+}
+
+//.generate-region-header-columns(@n, @i: 1) when (@i =< @n) {
+//    .region-header-col-@{i} {
+//        width: (@full-width - @width-center-header-column) / 2;
+//        float: left;
+//    }
+//    .generate-region-header-columns(@n, (@i + 1));
+//}
+//
+//.generate-region-header-columns(3);
+
+.region-header-col-1,
+.region-header-col-3 {
+    #desinax-vgrid.column(5);
+}
+
+.region-header-col-2 {
+    #desinax-vgrid.column(14);
+    //width: @width-center-header-column;
+    text-align: center;
+}
+
+.inner-wrap-header,
+.my-navbar > li:nth-child(2) > ul:nth-child(3) {
+    background-color: #2B6EA1;
+}
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+    .my-navbar > li:nth-child(@{i}) > a::before {
+        content: extract(@navbar-icons, @i);
+        .fontawesome-before();
+    }
+    .generate-columns(@n, (@i + 1));
+}
+
+.generate-columns(6);
+/**
+ * End of Header layout
+ */
+
+/**
+ * Navigation where present
+ */
+.next a::after {
+    content: '\f0da';
+    .fontawesome-after();
+}
+
+.previous a::before {
+    content: '\f0d9';
+    .fontawesome-before();
+}
+
+.next,
+.previous {
+    //width: @full-width / 2;
+}
+
+.previous {
+    //float: left;
+}
+.next {
+    //float: right;
+    //text-align: right;
+}
+/**
+ * End of Navigation where present
+ */
+
+/**
+ * Sidebars and navigation
+ */
+.breadcrumb-list ul,
+.toc {
+    list-style-type: none;
+    & li {
+        //margin-left: -20px;
+    }
+}
+
+.breadcrumb-list ul li::after {
+    content: '\f101';
+    .fontawesome-after();
+    //margin-right: 25px;
+}
+
+.breadcrumb-list ul {
+    display: flex;
+    //padding-top: 20px;
+    //padding-bottom: 20px;
+}
+
+div.toc > h4:nth-child(1) {
+    text-align: center;
+}
+/**
+ * End of Sidebars and navigation
+ */
